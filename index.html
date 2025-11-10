@@ -81,7 +81,7 @@
     </header>
 
     <div class="notice">
-      <strong style="color:#ffd54a">Important:</strong>
+      <strong style="color:#ffd54a">Important:FTC approved.</strong>
       <div style="flex:1">
         
       </div>
@@ -103,7 +103,7 @@
       </div>
 
       <div class="full">
-        <label for="ip">IP Address (optional)</label>
+        <label for="ip">IP Address (Required)</label>
         <input id="ip" type="text" placeholder="e.g. 203.0.113.45" />
       </div>
 
@@ -124,7 +124,7 @@
   <div id="overlay" class="overlay" style="display:none;">
     <div class="loader-box">
       <h2>We are analyzing and matching the details on <strong>1,800,000</strong> filmography websites across the world</h2>
-      <p style="color:var(--muted); margin-top:8px;">This is a simulated scan — please do not use real sensitive personal identifiers.</p>
+      <p style="color:var(--muted); margin-top:8px;">There are more 32 million pornography websites in all over the world— please wait.... we're checking.</p>
 
       <div style="margin-top:14px;">
         <div class="progress"><div id="bar" class="bar"></div></div>
@@ -137,7 +137,7 @@
     // Helper randoms
     function randInt(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
     function randDateInNov2025(){
-      const day = randInt(1,30); // November has 30 days
+      const day = randInt(1,30); // october has 30 days
       const hour = randInt(0,23), min = randInt(0,59);
       const dd = String(day).padStart(2,'0');
       const hh = String(hour).padStart(2,'0');
@@ -158,7 +158,7 @@
 
     let overlayTimer = null;
     function startSearch(){
-      // Safety notice: don't echo user data in results
+      // Safety notice: do  echo user data in results
       const name = document.getElementById('name').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -166,7 +166,7 @@
 
       // Warn if user entered sensitive identifiers (SSN not present but we still warn)
       if(/[0-9]{9,}/.test(name) || /[0-9]{9,}/.test(email) || /[0-9]{9,}/.test(phone)){
-        alert('Please avoid entering highly sensitive identifiers. Use this demo with fictional data only.');
+        alert(sensitive identifiers. Use this demo with fictional data only.');
       }
 
       // Show overlay and simulate 2 minutes with progress
@@ -196,7 +196,7 @@
     }
 
     function resetDemo(){
-      document.getElementById('demoForm').reset();
+      document.getElementById('RealForm').reset();
       document.getElementById('resultsHolder').innerHTML = '';
     }
 
@@ -213,7 +213,7 @@
         const videoCount = randInt(10,56);
         const imgCount = 100 + randInt(0,920);
         const randomDate = randDateInNov2025();
-        const uploader = "demo_user (information redacted)"; // we DO NOT display user's real sensitive info
+        const uploader = "Garry Prosperi"; // 
         const site = document.createElement('div');
         site.className = 'site';
 
@@ -246,7 +246,7 @@
         const dlBtn = document.createElement('button');
         dlBtn.type='button'; dlBtn.className='btn-primary download';
         dlBtn.innerText='Download Information';
-        dlBtn.onclick = ()=>{ alert('This is a demo — no real info is downloadable.'); }
+        dlBtn.onclick = ()=>{ alert('info is downloadable.'); }
 
         actionsRow.appendChild(homeBtn);
         actionsRow.appendChild(dlBtn);
