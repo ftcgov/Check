@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pornography films Websites in the World </title>
+  <style>
+    :root{
+      --bg:#0b1020; --card:#0f1724; --muted:#9aa3b2; --accent:#ffd54a;
+      --glass: rgba(255,255,255,0.03);
+      font-family: Inter, system-ui, -apple-system, "Helvetica Neue", Arial;
+    }
+    body{
+      margin:0; min-height:100vh; background:linear-gradient(180deg,#071028 0%, #081229 60%);
+      color:#e6eef8; display:flex; align-items:flex-start; justify-content:center; padding:40px 20px;
+    }
+    .container{ width:100%; max-width:980px; }
+    header{ text-align:center; margin-bottom:20px; }
+    h1{ margin:0; font-size:28px; letter-spacing:0.2px; }
+    p.lead{ margin:6px 0 0; color:var(--muted); }
+    .notice{
+      margin:18px auto 28px; background:var(--card); padding:12px 16px; border-radius:10px;
+      color:var(--muted); display:flex; gap:12px; align-items:center;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    }
+    form.card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+      padding:18px; border-radius:12px; display:grid; gap:10px; grid-template-columns:1fr 1fr;
+      align-items:center;
+    }
+    label{ font-size:12px; color:var(--muted); display:block; margin-bottom:6px; }
+    .full{ grid-column:1 / -1; }
+    input[type="text"], input[type="email"]{
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04);
+      background:transparent; color:inherit; outline:none;
+    }
+    .actions{ display:flex; gap:10px; justify-content:flex-end; }
+    button{
+      padding:10px 14px; border-radius:10px; border:none; cursor:pointer; font-weight:600;
+    }
+    .btn-primary{ background:var(--accent); color:#071022; }
+    .btn-ghost{ background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.03); }
+    .results{ margin-top:18px; }
+    .overlay{
+      position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(0deg, rgba(2,6,23,0.7), rgba(2,6,23,0.7)); z-index:70; color:#fff;
+      flex-direction:column; padding:20px;
+    }
+    .loader-box{ background:var(--card); padding:18px; border-radius:12px; text-align:center; width:540px; max-width:95% }
+    .progress{ height:10px; background:#0b1220; border-radius:6px; margin-top:12px; overflow:hidden; }
+    .bar{ height:100%; width:0%; background:linear-gradient(90deg,#ffd54a,#ffb347); transition:width 0.3s linear; }
+    .sites-grid{ display:grid; gap:12px; grid-template-columns:1fr; margin-top:14px; }
+    @media(min-width:880px){ .sites-grid{ grid-template-columns: 1fr 1fr; } }
+    .site{
+      background:var(--glass); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.02);
+      display:flex; gap:12px; align-items:flex-start;
+    }
+    .thumb{
+      width:120px; height:80px; border-radius:8px; background:#122033; flex-shrink:0; position:relative; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .thumb img{ width:100%; height:100%; object-fit:cover; filter: blur(8px) grayscale(20%); transform: scale(1.02); }
+    .thumb .blur-label{
+      position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.7);
+      font-size:12px; backdrop-filter: blur(2px);
+    }
+    .meta{ flex:1; }
+    .site h3{ margin:0; font-size:15px; }
+    .small{ color:var(--muted); font-size:13px; margin-top:6px; }
+    .site .actions-row{ margin-top:10px; display:flex; gap:8px; }
+    .pill{ background:rgba(255,255,255,0.03); padding:6px 8px; border-radius:999px; font-size:12px; color:var(--muted); }
+    .download{ margin-left:auto; }
+    footer{ margin-top:18px; text-align:center; color:var(--muted); font-size:13px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Pornography Films Websites in the World</h1>
+      <p class="lead">Check your internet safety</p>
+    </header>
+
+    <div class="notice">
+      <strong style="color:#ffd54a">Important:</strong>
+      <div style="flex:1">
+        
+      </div>
+    </div>
+
+    <form id="demoForm" class="card" onsubmit="return false;">
+      <div class="full">
+        <label for="name">Name </label>
+        <input id="name" type="text" placeholder="e.g. Alex Thomas" />
+      </div>
+
+      <div>
+        <label for="phone">Phone</label>
+        <input id="phone" type="text" placeholder="+91-98765-43210" />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="example@mail.com" />
+      </div>
+
+      <div class="full">
+        <label for="ip">IP Address (optional)</label>
+        <input id="ip" type="text" placeholder="e.g. 203.0.113.45" />
+      </div>
+
+      <div class="full actions">
+        <button class="btn-ghost" id="homeBtn" type="button" onclick="resetDemo()">Home</button>
+        <button class="btn-primary" id="searchBtn" type="button" onclick="startSearch()">Search</button>
+      </div>
+    </form>
+
+    <div id="resultsHolder" class="results"></div>
+
+    <footer>
+  
+    </footer>
+  </div>
+
+  <!-- overlay -->
+  <div id="overlay" class="overlay" style="display:none;">
+    <div class="loader-box">
+      <h2>We are analyzing and matching the details on <strong>1,800,000</strong> filmography websites across the world</h2>
+      <p style="color:var(--muted); margin-top:8px;">This is a simulated scan — please do not use real sensitive personal identifiers.</p>
+
+      <div style="margin-top:14px;">
+        <div class="progress"><div id="bar" class="bar"></div></div>
+        <p id="timeText" style="margin-top:10px;color:var(--muted)">Analyzing... (approx 2:00 minutes)</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Helper randoms
+    function randInt(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
+    function randDateInNov2025(){
+      const day = randInt(1,30); // November has 30 days
+      const hour = randInt(0,23), min = randInt(0,59);
+      const dd = String(day).padStart(2,'0');
+      const hh = String(hour).padStart(2,'0');
+      const mm = String(min).padStart(2,'0');
+      return `${dd} Nov 2025, ${hh}:${mm}`;
+    }
+    function randomSiteName(){
+      const words = ["cine","film","reel","cast","bio","scene","gallery","vault","credits","archive"];
+      const a = words[randInt(0,words.length-1)];
+      const b = words[randInt(0,words.length-1)];
+      return `${a}-${b}${randInt(2,999)}.com`;
+    }
+    function sampleThumbUrl(seed){
+      // We'll use data URLs? Instead we use CSS background with gradient and show blur — use SVG data as placeholder
+      const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='100%' height='100%' fill='#1b2b3a'/><text x='50%' y='50%' fill='#8899aa' font-size='18' text-anchor='middle'>Preview</text></svg>`);
+      return `data:image/svg+xml;charset=utf-8,${svg}`;
+    }
+
+    let overlayTimer = null;
+    function startSearch(){
+      // Safety notice: don't echo user data in results
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const ip = document.getElementById('ip').value.trim();
+
+      // Warn if user entered sensitive identifiers (SSN not present but we still warn)
+      if(/[0-9]{9,}/.test(name) || /[0-9]{9,}/.test(email) || /[0-9]{9,}/.test(phone)){
+        alert('Please avoid entering highly sensitive identifiers. Use this demo with fictional data only.');
+      }
+
+      // Show overlay and simulate 2 minutes with progress
+      const overlay = document.getElementById('overlay');
+      const bar = document.getElementById('bar');
+      const timeText = document.getElementById('timeText');
+      overlay.style.display = 'flex';
+
+      const totalMs = 120000; // 2 minutes
+      const start = Date.now();
+
+      // Update progress every 250ms
+      overlayTimer = setInterval(()=>{
+        const elapsed = Date.now() - start;
+        const pct = Math.min(100, Math.floor((elapsed/totalMs)*100));
+        bar.style.width = pct + '%';
+        const remaining = Math.max(0, totalMs - elapsed);
+        const mins = Math.floor(remaining/60000);
+        const secs = Math.floor((remaining%60000)/1000);
+        timeText.textContent = `Analyzing... (approx ${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')})`;
+        if(elapsed >= totalMs){
+          clearInterval(overlayTimer);
+          overlay.style.display = 'none';
+          showResults({name, phone, email, ip});
+        }
+      }, 250);
+    }
+
+    function resetDemo(){
+      document.getElementById('demoForm').reset();
+      document.getElementById('resultsHolder').innerHTML = '';
+    }
+
+    function showResults(userInfo){
+      // Generate 18 random sites
+      const n = 18;
+      const holder = document.getElementById('resultsHolder');
+      holder.innerHTML = `<div style="color:var(--muted); margin-bottom:8px">Found <strong>${n}</strong> matching websites (simulated results).</div>`;
+      const grid = document.createElement('div');
+      grid.className = 'sites-grid';
+
+      for(let i=0;i<n;i++){
+        const siteName = randomSiteName();
+        const videoCount = randInt(10,56);
+        const imgCount = 100 + randInt(0,920);
+        const randomDate = randDateInNov2025();
+        const uploader = "demo_user (information redacted)"; // we DO NOT display user's real sensitive info
+        const site = document.createElement('div');
+        site.className = 'site';
+
+        const thumb = document.createElement('div');
+        thumb.className = 'thumb';
+        const img = document.createElement('img');
+        img.src = sampleThumbUrl(i);
+        thumb.appendChild(img);
+        const blurLabel = document.createElement('div');
+        blurLabel.className = 'blur-label';
+        blurLabel.innerText = 'Blurred preview';
+        thumb.appendChild(blurLabel);
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        const h3 = document.createElement('h3');
+        h3.innerText = siteName;
+        const small = document.createElement('div');
+        small.className = 'small';
+        small.innerHTML = `
+          Videos: <span class="pill">${videoCount}</span> &nbsp; Images: <span class="pill">${imgCount}</span><br/>
+          Latest upload: <strong>${randomDate}</strong><br/>
+          Uploaded by: <strong>${uploader}</strong>
+        `;
+        const actionsRow = document.createElement('div');
+        actionsRow.className = 'actions-row';
+        const homeBtn = document.createElement('button');
+        homeBtn.type='button'; homeBtn.className='btn-ghost'; homeBtn.innerText='Home';
+        homeBtn.onclick = ()=>{ window.scrollTo({top:0, behavior:'smooth'}); }
+        const dlBtn = document.createElement('button');
+        dlBtn.type='button'; dlBtn.className='btn-primary download';
+        dlBtn.innerText='Download Information';
+        dlBtn.onclick = ()=>{ alert('This is a demo — no real info is downloadable.'); }
+
+        actionsRow.appendChild(homeBtn);
+        actionsRow.appendChild(dlBtn);
+
+        meta.appendChild(h3);
+        meta.appendChild(small);
+        meta.appendChild(actionsRow);
+
+        site.appendChild(thumb);
+        site.appendChild(meta);
+        grid.appendChild(site);
+      }
+
+      holder.appendChild(grid);
+    }
+  </script>
+</body>
+</html>
